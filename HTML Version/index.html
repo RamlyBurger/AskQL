@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AskQL - Smart Database Management</title>
+    <!-- Add Tailwind dark mode configuration -->
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {}
+            }
+        }
+    </script>
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900">
+    <!-- Navigation will be included via navigation.js -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 -z-10"></div>
+        <div class="container mx-auto px-6 py-24">
+            <div class="text-center" data-aos="fade-up">
+                <h1 class="text-6xl md:text-7xl font-bold mb-8 text-gray-900 dark:text-white">
+                    <span class="text-blue-600 dark:text-blue-400">Transform</span> Your
+                    <br>Database Experience
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+                    Intelligent database management and analysis platform powered by AI.
+                    Visualize, analyze, and optimize your data like never before.
+                </p>
+                <a href="pages/database.html" 
+                   class="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold 
+                          hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition transform hover:scale-105">
+                    Start Your Journey
+                </a>
+            </div>
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+                <a href="#services" class="hero-scroll block">
+                    <svg class="w-10 h-10 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Services Section -->
+    <section id="services" class="py-24 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white" data-aos="fade-up">Key Services</h2>
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-8 xl:gap-12">
+                <!-- Database Management -->
+                <div class="p-8 rounded-2xl bg-white dark:bg-gray-700 shadow-lg transform hover:-translate-y-2 transition duration-300"
+                     data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-blue-100 dark:bg-blue-900/30 rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-4 mx-auto xl:mx-0">
+                        <i class="fas fa-database text-blue-600 dark:text-blue-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white text-center xl:text-left">Smart Database Management</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-center xl:text-left">Create and manage databases with ease. Import from CSV, connect to external sources, or build from scratch with AI-powered insights and optimization suggestions.</p>
+                </div>
+
+                <!-- ERD Builder -->
+                <div class="p-8 rounded-2xl bg-white dark:bg-gray-700 shadow-lg transform hover:-translate-y-2 transition duration-300"
+                     data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-green-100 dark:bg-green-900/30 rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-4 mx-auto xl:mx-0">
+                        <i class="fas fa-project-diagram text-green-600 dark:text-green-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white text-center xl:text-left">Visual ERD Builder</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-center xl:text-left">Design and visualize your database structure with our intuitive ERD builder. Create relationships and optimize your database architecture with smart suggestions.</p>
+                </div>
+
+                <!-- AI Insights -->
+                <div class="p-8 rounded-2xl bg-white dark:bg-gray-700 shadow-lg transform hover:-translate-y-2 transition duration-300"
+                     data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-purple-100 dark:bg-purple-900/30 rounded-lg p-4 w-16 h-16 flex items-center justify-center mb-4 mx-auto xl:mx-0">
+                        <i class="fas fa-brain text-purple-600 dark:text-purple-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white text-center xl:text-left">Advanced Analytics & AI Insights</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-center xl:text-left">Get real-time data analysis with interactive visualizations and AI-powered insights to optimize your database performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials bg-gray-50 dark:bg-gray-900" id="testimonials">
+        <div class="container mx-auto px-6 py-20 select-none">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white">Client <span class="text-blue-600 dark:text-blue-500">Testimonials</span></h2>
+                <p class="text-gray-600 dark:text-gray-400 mt-4">What our clients say about our services</p>
+            </div>
+
+            <div class="testimonial-container relative overflow-hidden max-w-4xl mx-auto">
+                <button class="testimonial-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full shadow-lg hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center select-none border border-gray-200 dark:border-gray-600">
+                    <i class="fas fa-chevron-left text-gray-600 dark:text-gray-300"></i>
+                </button>
+
+                <div class="testimonial-track flex">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-slide w-full flex-none">
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 dark:border-gray-600">
+                            <div class="text-blue-600 dark:text-blue-500 text-5xl mb-6">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 text-lg mb-8">"Working with the ShopMe team has been a game-changer for our online presence. Their innovative approaches and dedication to excellence resulted in a 40% increase in our conversion rate."</p>
+                            <div class="flex items-center">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Sarah Johnson" class="w-12 h-12 rounded-full object-cover border-2 border-gray-200 dark:border-gray-600">
+                                <div class="ml-4">
+                                    <h4 class="text-gray-900 dark:text-white font-semibold">Sarah Johnson</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">CEO, TechSolutions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-slide w-full flex-none">
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 dark:border-gray-600">
+                            <div class="text-blue-600 dark:text-blue-500 text-5xl mb-6">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 text-lg mb-8">"The team's attention to detail and ability to understand our unique requirements set them apart from other agencies we've worked with. Our e-commerce platform has never performed better!"</p>
+                            <div class="flex items-center">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="David Chen" class="w-12 h-12 rounded-full object-cover border-2 border-gray-200 dark:border-gray-600">
+                                <div class="ml-4">
+                                    <h4 class="text-gray-900 dark:text-white font-semibold">David Chen</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">CTO, RetailNova</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-slide w-full flex-none">
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 dark:border-gray-600">
+                            <div class="text-blue-600 dark:text-blue-500 text-5xl mb-6">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 text-lg mb-8">"From the initial consultation to the final product launch, ShopMe exceeded our expectations at every turn. Their customer support is unmatched, and the solutions they delivered helped us scale our business rapidly."</p>
+                            <div class="flex items-center">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Michelle Torres" class="w-12 h-12 rounded-full object-cover border-2 border-gray-200 dark:border-gray-600">
+                                <div class="ml-4">
+                                    <h4 class="text-gray-900 dark:text-white font-semibold">Michelle Torres</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">Marketing Director, GrowthFusion</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="testimonial-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full shadow-lg hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center select-none border border-gray-200 dark:border-gray-600">
+                    <i class="fas fa-chevron-right text-gray-600 dark:text-gray-300"></i>
+                </button>
+
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-blue-600 dark:bg-blue-500 cursor-pointer select-none" data-slide="0"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 cursor-pointer select-none" data-slide="1"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 cursor-pointer select-none" data-slide="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Clients Section -->
+    <section class="py-24 bg-white dark:bg-gray-800 overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white" data-aos="fade-up">Our Clients</h2>
+            <div class="logo-rows space-y-16">
+                <!-- First Row - Left to Right -->
+                <div class="logo-row flex space-x-8 animate-scroll-left">
+                    <div class="logo-container min-w-[150px] h-[60px] bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                        <img src="https://static.vecteezy.com/system/resources/previews/013/901/773/original/facebook-icon-ios-facebook-social-media-logo-on-white-background-free-free-vector.jpg" alt="Company Name" class="w-32 h-auto">
+                    </div>
+                    <!-- Add more logos -->
+                </div>
+                
+                <!-- Second Row - Right to Left -->
+                <div class="logo-row flex space-x-8 animate-scroll-right">
+                    <div class="logo-container min-w-[150px] h-[60px] bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                        <img src="https://static.vecteezy.com/system/resources/previews/013/901/773/original/facebook-icon-ios-facebook-social-media-logo-on-white-background-free-free-vector.jpg" alt="Company Name" class="w-32 h-auto">
+                    </div>
+                    <!-- Add more logos -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+     <section class="py-24 bg-gray-50 dark:bg-gray-900" id="about">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <!-- About Image -->
+                <div class="relative order-2 lg:order-1" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" 
+                         alt="Our Team" 
+                         class="rounded-lg shadow-xl w-full">
+                                         <div class="absolute -bottom-8 -right-8 bg-blue-600 dark:bg-blue-400 text-white p-8 rounded-full shadow-lg text-center w-36 h-36 flex flex-col justify-center items-center">
+                         <div class="text-4xl font-bold">10</div>
+                         <div class="text-sm leading-tight">Years of<br>Excellence</div>
+                     </div>
+                </div>
+
+                <!-- About Content -->
+                <div class="space-y-8 order-1 lg:order-2" data-aos="fade-left">
+                    <div>
+                                                 <h2 class="text-5xl font-bold text-gray-900 dark:text-white">
+                             About <span class="text-blue-600 dark:text-blue-400">AskQL</span>
+                         </h2>
+                    </div>
+
+                    <p class="text-gray-600 dark:text-gray-300 text-lg">
+                        Founded in 2015, AskQL has been revolutionizing database management through AI-powered solutions. 
+                        Our innovative platform empowers developers and businesses to interact with their databases more 
+                        intuitively, making complex data operations simple and efficient.
+                    </p>
+
+                                         <!-- Mission & Vision -->
+                     <div class="grid lg:grid-cols-2 gap-8">
+                         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg space-y-4 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300">
+                                                          <h3 class="text-xl font-semibold text-gray-900 dark:text-white flex items-center">
+                                 <span class="text-blue-600 dark:text-blue-400 mr-3"><i class="fas fa-bullseye"></i></span> Our Mission
+                             </h3>
+                             <p class="text-gray-600 dark:text-gray-300">
+                                 To revolutionize database management by making it more accessible, intelligent, and 
+                                 efficient through AI-powered solutions and intuitive interfaces.
+                             </p>
+                         </div>
+
+                         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg space-y-4 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300">
+                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white flex items-center">
+                                 <span class="text-blue-600 dark:text-blue-400 mr-3"><i class="fas fa-eye"></i></span> Our Vision
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                To be the global leader in intelligent database management solutions, setting new 
+                                standards for how businesses interact with and understand their data.
+                            </p>
+                        </div>
+                    </div>
+
+                                                              <!-- Stats -->
+                     <div class="grid grid-cols-4 gap-6 pt-8">
+                         <div class="text-center p-4">
+                             <span class="block text-4xl font-bold text-blue-600 dark:text-blue-400">
+                                 <span class="counter" data-target="500">0</span>
+                             </span>
+                             <span class="text-gray-600 dark:text-gray-400 text-sm">Projects<br>Completed</span>
+                         </div>
+
+                         <div class="text-center p-4">
+                             <span class="block text-4xl font-bold text-blue-600 dark:text-blue-400">
+                                 <span class="counter" data-target="150">0</span>
+                             </span>
+                             <span class="text-gray-600 dark:text-gray-400 text-sm">Happy<br>Clients</span>
+                         </div>
+
+                         <div class="text-center p-4">
+                             <span class="block text-4xl font-bold text-blue-600 dark:text-blue-400">
+                                 <span class="counter" data-target="30">0</span>
+                             </span>
+                             <span class="text-gray-600 dark:text-gray-400 text-sm">Team<br>Members</span>
+                         </div>
+
+                         <div class="text-center p-4">
+                             <span class="block text-4xl font-bold text-blue-600 dark:text-blue-400">
+                                 <span class="counter" data-target="15">0</span>
+                             </span>
+                             <span class="text-gray-600 dark:text-gray-400 text-sm">Countries<br>Served</span>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white" data-aos="fade-up">Ready to Get Started?</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Join thousands of developers who are already using AskQL to manage their databases smarter.
+            </p>
+            <a href="pages/database.html" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors" data-aos="fade-up" data-aos-delay="200">
+                Start Building Now
+            </a>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/testimonials.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html> 

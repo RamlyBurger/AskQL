@@ -1,0 +1,107 @@
+/* Hero Section */
+.hero-scroll {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+/* Client Logos */
+.logo-container {
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.logo-container:hover {
+    filter: grayscale(0%);
+}
+
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+.animate-scroll-left {
+    animation: scrollLeft 20s linear infinite;
+    display: flex;
+    width: fit-content;
+}
+
+.animate-scroll-right {
+    animation: scrollRight 20s linear infinite;
+    display: flex;
+    width: fit-content;
+}
+
+.animate-scroll-left:hover,
+.animate-scroll-right:hover {
+    animation-play-state: paused;
+}
+
+/* Testimonials */
+.testimonial-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.testimonial-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    cursor: grab;
+}
+
+.testimonial-track.grabbing {
+    cursor: grabbing;
+}
+
+.testimonial-slide {
+    flex: 0 0 100%;
+    padding: 1rem;
+}
+
+/* Counter Section */
+.counter {
+    display: inline-block;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Features Section */
+.feature-card {
+    @apply p-6 rounded-xl bg-white shadow-lg transition-all duration-300;
+}
+
+.feature-card:hover {
+    @apply transform -translate-y-2 shadow-xl;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+/* Falling Stars Background */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: twinkle 1s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+} 
