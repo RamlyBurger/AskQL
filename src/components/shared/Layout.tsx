@@ -53,7 +53,6 @@ const Layout = ({ children }: LayoutProps) => {
                         <div className="hidden md:flex items-center space-x-8">
                             <Link to="/" className={`nav-link ${location.pathname === '/' ? activeNavLinkStyle : navLinkStyle}`}>Home</Link>
                             <Link to="/database" className={`nav-link ${location.pathname === '/database' ? activeNavLinkStyle : navLinkStyle}`}>Database</Link>
-                            <Link to="/erd" className={`nav-link ${location.pathname === '/erd' ? activeNavLinkStyle : navLinkStyle}`}>ERD</Link>
                             <Link to="/insights" className={`nav-link ${location.pathname === '/insights' ? activeNavLinkStyle : navLinkStyle}`}>Insights</Link>
                             
                             {/* Theme Toggle Button */}
@@ -91,7 +90,6 @@ const Layout = ({ children }: LayoutProps) => {
                         <div className="flex flex-col space-y-4 mt-4 pb-4">
                             <Link to="/" className={`nav-link ${location.pathname === '/' ? activeNavLinkStyle : navLinkStyle}`}>Home</Link>
                             <Link to="/database" className={`nav-link ${location.pathname === '/database' ? activeNavLinkStyle : navLinkStyle}`}>Database</Link>
-                            <Link to="/erd" className={`nav-link ${location.pathname === '/erd' ? activeNavLinkStyle : navLinkStyle}`}>ERD</Link>
                             <Link to="/insights" className={`nav-link ${location.pathname === '/insights' ? activeNavLinkStyle : navLinkStyle}`}>Insights</Link>
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/shared/Layout';
 import HomePage from './pages/HomePage';
 import DatabasePage from './pages/DatabasePage';
-import ErdPage from './pages/ErdPage';
+import DatabaseDetailPage from './pages/DatabaseDetailPage';
 import InsightsPage from './pages/InsightsPage';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/database" element={<DatabasePage />} />
-          <Route path="/erd" element={<ErdPage />} />
+          <Route path="/database/:id" element={<DatabaseDetailPage />} />
           <Route path="/insights" element={<InsightsPage />} />
         </Routes>
       </Layout>
