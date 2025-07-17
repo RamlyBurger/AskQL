@@ -13,6 +13,7 @@ export default {
       animation: {
         'scroll-left': 'scrollLeft 20s linear infinite',
         'scroll-right': 'scrollRight 20s linear infinite',
+        'gradient-slow': 'gradient 15s ease infinite',
       },
       keyframes: {
         scrollLeft: {
@@ -23,6 +24,17 @@ export default {
           '0%': { transform: 'translateX(-50%)' },
           '100%': { transform: 'translateX(0)' },
         },
+        gradient: {
+          '0%, 100%': {
+            'background-position': '0% 50%',
+          },
+          '50%': {
+            'background-position': '100% 50%',
+          },
+        },
+      },
+      backgroundSize: {
+        '200%': '200% auto',
       },
     },
   },

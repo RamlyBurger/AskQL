@@ -120,26 +120,4 @@ body {
 
 [data-aos].aos-animate {
     opacity: 1;
-}
-
-/* Testimonials */
-.testimonial-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-}
-
-.testimonial-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    cursor: grab;
-}
-
-.testimonial-track.grabbing {
-    cursor: grabbing;
-}
-
-.testimonial-slide {
-    flex: 0 0 100%;
-    padding: 1rem;
 } 

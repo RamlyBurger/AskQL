@@ -1,10 +1,29 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import * as joint from 'jointjs';
 
+interface DatabaseInfo {
+    name: string;
+    description: string;
+    sqlScript: string;
+}
+
 const ErdPage = () => {
+    const location = useLocation();
     const erdCanvasRef = useRef<HTMLDivElement>(null);
     const graphRef = useRef<joint.dia.Graph | null>(null);
     const paperRef = useRef<joint.dia.Paper | null>(null);
+    const [databaseInfo, setDatabaseInfo] = useState<DatabaseInfo | null>(null);
+
+    useEffect(() => {
+        // Get database info from navigation state
+        const state = location.state as { database?: DatabaseInfo };
+        if (state?.database) {
+            setDatabaseInfo(state.database);
+            // Here you would parse the SQL script and generate the ERD
+            console.log('Received database:', state.database);
+        }
+    }, [location]);
 
     useEffect(() => {
         // Initialize AOS
@@ -31,6 +50,28 @@ const ErdPage = () => {
                 }
             });
 
+            // If we have database info, generate the ERD
+            if (databaseInfo?.sqlScript) {
+                // Here you would implement the SQL parsing and ERD generation
+                // For now, we'll just create a sample table
+                const table = new joint.shapes.erd.Entity({
+                    position: { x: 100, y: 100 },
+                    size: { width: 150, height: 60 },
+                    attrs: {
+                        text: {
+                            text: databaseInfo.name,
+                            fill: isDarkMode ? '#fff' : '#000',
+                        },
+                        '.outer': {
+                            fill: isDarkMode ? '#374151' : '#fff',
+                            stroke: isDarkMode ? '#4B5563' : '#E5E7EB',
+                        }
+                    }
+                });
+
+                graphRef.current.addCell(table);
+            }
+
             // Handle dark mode changes
             const observer = new MutationObserver((mutations) => {
                 mutations.forEach((mutation) => {
@@ -40,7 +81,6 @@ const ErdPage = () => {
                             paperRef.current.options.background = {
                                 color: isDarkMode ? '#1f2937' : 'white'
                             };
-                            // Force paper to redraw with new background
                             paperRef.current.drawBackground();
                         }
                     }
@@ -58,15 +98,23 @@ const ErdPage = () => {
                 paperRef.current?.remove();
             };
         }
-    }, []);
+    }, [databaseInfo]);
 
     return (
         <div className="flex h-screen">
             {/* Sidebar */}
             <div className="w-72 bg-white dark:bg-gray-800 shadow-lg transition-colors duration-200">
                 <div className="p-6">
-                    <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">ERD Editor</h2>
+                    <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
+                        {databaseInfo?.name || 'ERD Editor'}
+                    </h2>
                     
+                    {databaseInfo && (
+                        <div className="mb-6">
+                            <p className="text-sm text-gray-600 dark:text-gray-300">{databaseInfo.description}</p>
+                        </div>
+                    )}
+
                     {/* Tools Section */}
                     <div className="mb-8">
                         <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-3">Tools</h3>
